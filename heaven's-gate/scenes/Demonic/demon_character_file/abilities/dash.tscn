@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lctnos8tyfkl"]
+
+[ext_resource type="Script" path="res://scripts/Demonic/demon_player_files/abilities_scripts/dash.gd" id="1_55im3"]
+
+[node name="Dash" type="Node2D"]
+script = ExtResource("1_55im3")
+
+[node name="dash timer" type="Timer" parent="."]

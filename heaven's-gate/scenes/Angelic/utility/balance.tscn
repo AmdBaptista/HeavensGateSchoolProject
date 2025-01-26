@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1rkcgcuevlsy"]
+
+[ext_resource type="Script" path="res://scripts/Angelic/utility/balance.gd" id="1_c7ync"]
+[ext_resource type="Texture2D" uid="uid://b5551ee6oo10u" path="res://assets/sprites/Angelic/balance_balanced.png" id="2_kps38"]
+[ext_resource type="Texture2D" uid="uid://cm5klvvyp3n7w" path="res://assets/sprites/Angelic/balance_inclined_left.png" id="3_cvva2"]
+[ext_resource type="AudioStream" uid="uid://1t7ri5j02hew" path="res://assets/sounds/weight_completed.mp3" id="4_ym1wu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be22a"]
+size = Vector2(43, 43.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr64p"]
+size = Vector2(42.5, 43)
+
+[node name="Balance" type="Node2D" groups=["Balance"]]
+position = Vector2(1, -82)
+scale = Vector2(2, 2)
+script = ExtResource("1_c7ync")
+balanced_texture = ExtResource("2_kps38")
+inclined_texture = ExtResource("3_cvva2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -31.5
+offset_top = -56.5
+offset_right = 14.5
+offset_bottom = -33.5
+
+[node name="LeftPlate" type="Area2D" parent="."]
+position = Vector2(-43, -52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPlate"]
+position = Vector2(19, 47.75)
+shape = SubResource("RectangleShape2D_be22a")
+
+[node name="RightPlate" type="Area2D" parent="."]
+position = Vector2(38, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPlate"]
+position = Vector2(-13, 46)
+shape = SubResource("RectangleShape2D_cr64p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kps38")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ym1wu")
+
+[connection signal="area_entered" from="LeftPlate" to="." method="_on_body_entered_left"]
+[connection signal="area_exited" from="LeftPlate" to="." method="_on_body_exited_left"]
+[connection signal="area_entered" from="RightPlate" to="." method="_on_body_entered_right"]
+[connection signal="area_exited" from="RightPlate" to="." method="_on_body_exited_right"]

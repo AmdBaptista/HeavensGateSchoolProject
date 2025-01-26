@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2xn716kax03m"]
+
+[ext_resource type="Texture2D" uid="uid://6yc57c7jvr3k" path="res://assets/backgrounds/final_blurred_background_image.png" id="1_6o4lv"]
+[ext_resource type="Script" path="res://scripts/select_level_scene.gd" id="1_i5v1m"]
+[ext_resource type="FontFile" uid="uid://b4hupb8haxycm" path="res://assets/fonts/Super Serene.ttf" id="2_fh5ba"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u80o"]
+texture = ExtResource("1_6o4lv")
+modulate_color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsedq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gx05d"]
+bg_color = Color(0.76662, 0.76662, 0.76662, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr5xa"]
+bg_color = Color(0.537011, 0.537011, 0.537011, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5iyko"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="SelectLevelScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i5v1m")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u80o")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -479.0
+offset_top = -425.0
+offset_right = 479.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 35
+theme_override_fonts/font = ExtResource("2_fh5ba")
+theme_override_font_sizes/font_size = 156
+text = "Heaven's Gate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -586.0
+offset_top = -77.0
+offset_right = 624.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Tutorial" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lsedq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gx05d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qr5xa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5iyko")
+text = "Tutorial"
+
+[node name="1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lsedq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gx05d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qr5xa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5iyko")
+text = "Level 1
+"
+
+[node name="2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lsedq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gx05d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qr5xa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5iyko")
+text = "Level 2
+"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 172.0
+offset_right = 148.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lsedq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gx05d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qr5xa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5iyko")
+text = "Back"
+
+[connection signal="pressed" from="HBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="HBoxContainer/1" to="." method="_on_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

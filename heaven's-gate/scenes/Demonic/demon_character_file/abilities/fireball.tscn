@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc7wskfaen1ox"]
+
+[ext_resource type="Texture2D" uid="uid://dkalyf47xiflh" path="res://assets/sprites/Demonic/fire_ball/FireballProjectile.png" id="1_adx8h"]
+[ext_resource type="Script" path="res://scripts/Demonic/other_characters_files/fire_ball_enemy.gd" id="1_ksajx"]
+[ext_resource type="PackedScene" uid="uid://culddfs6878bq" path="res://scenes/Demonic/utility/hitboxes.tscn" id="2_ptdcf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_516hp"]
+radius = 9.0
+height = 28.0
+
+[node name="Fireball" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ksajx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -0.999999)
+scale = Vector2(2.242, 2.598)
+texture = ExtResource("1_adx8h")
+hframes = 4
+frame = 1
+
+[node name="hitbox" parent="." groups=["player_projectile", "projectiles"] instance=ExtResource("2_ptdcf")]
+collision_layer = 2
+collision_mask = 1
+critical_chance = 0.1
+
+[node name="CollisionShape2D" parent="hitbox" index="0"]
+position = Vector2(4.37114e-08, -1)
+shape = SubResource("CapsuleShape2D_516hp")
+
+[node name="TimerToFree" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[editable path="hitbox"]

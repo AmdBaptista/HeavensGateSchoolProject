@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1rkcgcuevlsy"]
+
+[ext_resource type="Script" path="res://scripts/Angelic/utility/balance.gd" id="1_c7ync"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmyv4"]
+size = Vector2(1.18, 0.8)
+
+[node name="Balance" type="Node2D" groups=["Balance"]]
+scale = Vector2(50, 50)
+script = ExtResource("1_c7ync")
+
+[node name="Label" type="Label" parent="."]
+offset_top = -3.72
+offset_right = 40.0
+offset_bottom = 19.28
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-0.02, 0.88)
+polygon = PackedVector2Array(-1.44, -1.08, -1.24, -0.94, -0.36, -0.94, -0.16, -1.16, -0.02, -0.96, -0.02, -2.12, 0.08, -2.12, 0.08, -0.94, 0.24, -1.18, 0.36, -0.94, 1.22, -0.94, 1.36, -1.18, 1.36, -0.86, 0.08, -0.86, 0.08, -0.94, -0.02, -0.94, -0.02, -0.86, -1.46, -0.88)
+
+[node name="LeftPlate" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPlate"]
+position = Vector2(-0.82, -0.4)
+shape = SubResource("RectangleShape2D_fmyv4")
+
+[node name="RightPlate" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPlate"]
+position = Vector2(0.79, -0.4)
+shape = SubResource("RectangleShape2D_fmyv4")

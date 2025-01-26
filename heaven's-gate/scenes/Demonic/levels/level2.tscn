@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://b281h5rpw4adt"]
+
+[ext_resource type="Script" path="res://scripts/Demonic/levels/level_2.gd" id="1_ao4h3"]
+[ext_resource type="PackedScene" uid="uid://dehipotrn3xpm" path="res://scenes/demon_world/mapas/boss_map.tscn" id="1_ugech"]
+[ext_resource type="PackedScene" uid="uid://ky8xha76xac" path="res://scenes/General/DemonNextLevel.tscn" id="2_82r14"]
+[ext_resource type="PackedScene" uid="uid://bnqjdhhmm1a5" path="res://scenes/Demonic/other_characters/boss.tscn" id="3_vonyx"]
+[ext_resource type="PackedScene" uid="uid://bdgp0khyog123" path="res://scenes/Demonic/demon_character_file/Demon_Character.tscn" id="11_ja2cb"]
+
+[node name="Level" type="Node"]
+script = ExtResource("1_ao4h3")
+
+[node name="Demon Next Level" parent="." instance=ExtResource("2_82r14")]
+position = Vector2(-332, -217)
+
+[node name="BossMap" parent="." instance=ExtResource("1_ugech")]
+
+[node name="Demon" parent="." instance=ExtResource("11_ja2cb")]
+unique_name_in_owner = true
+position = Vector2(60, 404)
+
+[node name="Boss" parent="." instance=ExtResource("3_vonyx")]
+position = Vector2(637, 409)

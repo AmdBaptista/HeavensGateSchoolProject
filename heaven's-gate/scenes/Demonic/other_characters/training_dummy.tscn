@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://qucq7iklwcg3"]
+
+[ext_resource type="Script" path="res://scripts/Demonic/other_characters_files/training_dummy.gd" id="1_fvauj"]
+[ext_resource type="Texture2D" uid="uid://bq6lvh4y0leii" path="res://assets/sprites/Demonic/training_dummy/Training Dummy Sprite Sheet.png" id="1_qst7u"]
+[ext_resource type="PackedScene" uid="uid://dk63ydwnxbxm5" path="res://scenes/Demonic/utility/hurtboxes.tscn" id="2_rhfq2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehbuh"]
+atlas = ExtResource("1_qst7u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl6fn"]
+atlas = ExtResource("1_qst7u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36f1i"]
+atlas = ExtResource("1_qst7u")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efg1h"]
+atlas = ExtResource("1_qst7u")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qf41e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehbuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl6fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36f1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efg1h")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wiir0"]
+size = Vector2(13, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi3r7"]
+size = Vector2(32, 38)
+
+[node name="training_dummy" type="CharacterBody2D" groups=["enemies", "training_dummy"]]
+script = ExtResource("1_fvauj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-22.25, -25.75)
+scale = Vector2(1.39062, 1.54688)
+sprite_frames = SubResource("SpriteFrames_qf41e")
+animation = &"hurt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-22.5, -23)
+shape = SubResource("RectangleShape2D_wiir0")
+
+[node name="hurbox" parent="." instance=ExtResource("2_rhfq2")]
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="hurbox" index="0"]
+position = Vector2(-21, -25)
+shape = SubResource("RectangleShape2D_pi3r7")
+debug_color = Color(0.768931, 0.418042, 0.422534, 0.42)
+
+[node name="DamageNumbers" type="Node2D" parent="."]
+position = Vector2(-23, -48)
+
+[connection signal="hurt" from="hurbox" to="." method="_on_hurbox_hurt"]
+
+[editable path="hurbox"]

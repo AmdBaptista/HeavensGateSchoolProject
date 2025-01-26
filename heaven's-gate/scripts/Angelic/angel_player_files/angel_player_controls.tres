@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerControls" load_steps=2 format=3 uid="uid://b5n2bgdfal2fr"]
+
+[ext_resource type="Script" path="res://scripts/Angelic/angel_player_files/angel_player_controls.gd" id="1_vq3x3"]
+
+[resource]
+script = ExtResource("1_vq3x3")
+player_index = 0
+move_left = "p1_move_left"
+move_right = "p1_move_right"
+jump = "p1_jump"
+pickup = "p1_pickup"

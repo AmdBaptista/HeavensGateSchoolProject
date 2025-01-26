@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqynnoc12kqss"]
+
+[ext_resource type="Texture2D" uid="uid://d2t8v5elfjc13" path="res://assets/sprites/Demonic/heart.png" id="1_ev58c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vdxa"]
+radius = 13.75
+
+[node name="RegenHearth" type="Area2D" groups=["utilities"]]
+z_index = -1
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_ev58c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -5)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_6vdxa")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8kngetryhu2t"]
+
+[ext_resource type="Script" path="res://scripts/Demonic/utility/health_bar.gd" id="1_gwnor"]
+
+[node name="HealthBar" type="CanvasLayer"]
+script = ExtResource("1_gwnor")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

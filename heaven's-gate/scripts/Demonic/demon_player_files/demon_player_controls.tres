@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerControls" load_steps=2 format=3 uid="uid://ddo4x46wypbx6"]
+
+[ext_resource type="Script" path="res://scripts/Angelic/angel_player_files/angel_player_controls.gd" id="1_sdkrk"]
+
+[resource]
+script = ExtResource("1_sdkrk")
+player_index = 1
+move_left = "p2_move_left"
+move_right = "p2_move_right"
+jump = "p2_jump"

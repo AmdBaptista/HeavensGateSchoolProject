@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2so3emb1odhg"]
+
+[ext_resource type="Script" path="res://scripts/Demonic/levels/level_1.gd" id="1_2e41c"]
+[ext_resource type="PackedScene" uid="uid://bdgp0khyog123" path="res://scenes/Demonic/demon_character_file/Demon_Character.tscn" id="4_4twvk"]
+[ext_resource type="PackedScene" uid="uid://ky8xha76xac" path="res://scenes/General/DemonNextLevel.tscn" id="5_d4gqk"]
+[ext_resource type="PackedScene" uid="uid://dqynnoc12kqss" path="res://scenes/Demonic/utility/regen_hearth.tscn" id="5_ygr3r"]
+[ext_resource type="PackedScene" uid="uid://bmcswr2o3dm06" path="res://scenes/Demonic/other_characters/flying_enemy.tscn" id="6_8y31k"]
+[ext_resource type="PackedScene" uid="uid://dl6mrgn8ln3xe" path="res://scenes/Demonic/other_characters/skeleton_enemy.tscn" id="6_48q4y"]
+[ext_resource type="PackedScene" uid="uid://6acvydd7etld" path="res://scenes/demon_world/mapas/mapa1.tscn" id="6_ktfdx"]
+
+[node name="Level" type="Node"]
+script = ExtResource("1_2e41c")
+
+[node name="Demon Next Level" parent="." instance=ExtResource("5_d4gqk")]
+position = Vector2(2341, 90)
+
+[node name="Mapa" parent="." instance=ExtResource("6_ktfdx")]
+
+[node name="Demon" parent="." instance=ExtResource("4_4twvk")]
+unique_name_in_owner = true
+position = Vector2(-469, 355)
+
+[node name="RegenHearth" parent="." instance=ExtResource("5_ygr3r")]
+position = Vector2(1673, 467)
+
+[node name="RegenHearth2" parent="." instance=ExtResource("5_ygr3r")]
+position = Vector2(1280, -54)
+
+[node name="RegenHearth3" parent="." instance=ExtResource("5_ygr3r")]
+position = Vector2(692, -58)
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="SkeletonEnemy" parent="enemies" instance=ExtResource("6_48q4y")]
+position = Vector2(285, 424)
+
+[node name="SkeletonEnemy2" parent="enemies" instance=ExtResource("6_48q4y")]
+position = Vector2(1263, 461)
+
+[node name="SkeletonEnemy3" parent="enemies" instance=ExtResource("6_48q4y")]
+position = Vector2(930, 62)
+
+[node name="SkeletonEnemy5" parent="enemies" instance=ExtResource("6_48q4y")]
+position = Vector2(2048, 323)
+
+[node name="FlyingEnemy3" parent="enemies" instance=ExtResource("6_8y31k")]
+position = Vector2(438, -130)
+
+[node name="FlyingEnemy2" parent="enemies" instance=ExtResource("6_8y31k")]
+position = Vector2(1809, -142)
+
+[node name="FlyingEnemy4" parent="enemies" instance=ExtResource("6_8y31k")]
+position = Vector2(1319, 176)

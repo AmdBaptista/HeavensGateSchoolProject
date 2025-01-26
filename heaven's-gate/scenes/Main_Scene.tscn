@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://yiwct8lewvqf"]
+
+[ext_resource type="Script" path="res://scripts/Main_Scene.gd" id="1_t2g5i"]
+[ext_resource type="PackedScene" uid="uid://cof0b5xhtsw6f" path="res://scenes/level0.tscn" id="2_fqnq2"]
+[ext_resource type="PackedScene" uid="uid://caetavmkheuxd" path="res://scenes/Demonic/levels/level0.tscn" id="3_0wr5d"]
+[ext_resource type="AudioStream" uid="uid://d45ruhksu415" path="res://assets/sounds/musical_compressed_house_or_trance_drum_loop.mp3" id="4_msqlq"]
+
+[node name="Game" type="Node2D"]
+position = Vector2(0, 8)
+script = ExtResource("1_t2g5i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1920, 540)
+render_target_update_mode = 4
+
+[node name="Level" parent="VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_fqnq2")]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1920, 540)
+render_target_update_mode = 4
+
+[node name="Level" parent="VBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("3_0wr5d")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(10, 10)
+offset_left = -509.0
+offset_top = 535.0
+offset_right = 2392.0
+offset_bottom = 545.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_msqlq")
+autoplay = true
+bus = &"Music"

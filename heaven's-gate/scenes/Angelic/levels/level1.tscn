@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbddilts5rpn1"]
+
+[ext_resource type="Script" path="res://scripts/Angelic/levels/level_1.gd" id="1_53nx7"]
+[ext_resource type="PackedScene" uid="uid://bd83hmcgj267p" path="res://scenes/angel_world/mapas/Map_1.tscn" id="1_c4xfh"]
+[ext_resource type="PackedScene" uid="uid://gl1q75cy5jea" path="res://scenes/General/AngelNextLevel.tscn" id="1_vvepq"]
+[ext_resource type="Script" path="res://scripts/Angelic/utility/coin_spawner.gd" id="2_v7ycw"]
+[ext_resource type="PackedScene" uid="uid://dgibuouuh1q0g" path="res://scenes/Angelic/utility/Coin.tscn" id="3_wcbc0"]
+[ext_resource type="PackedScene" uid="uid://cjkry24xpfwai" path="res://scenes/Angelic/angel_character_file/Angel Player.tscn" id="4_3jyb1"]
+[ext_resource type="PackedScene" uid="uid://b1rkcgcuevlsy" path="res://scenes/Angelic/utility/balance.tscn" id="5_b4b8x"]
+[ext_resource type="PackedScene" uid="uid://1o3bc0kvgeju" path="res://scenes/Angelic/utility/Weighted_item.tscn" id="6_xlwta"]
+[ext_resource type="PackedScene" uid="uid://dbfovefd3me4b" path="res://scenes/Angelic/utility/timer.tscn" id="8_qxsx8"]
+[ext_resource type="PackedScene" uid="uid://csg53qguc7s2b" path="res://scenes/General/killzone.tscn" id="9_j2sw6"]
+
+[node name="Level" type="Node"]
+script = ExtResource("1_53nx7")
+
+[node name="Angel Next Level" parent="." instance=ExtResource("1_vvepq")]
+position = Vector2(841, 82)
+
+[node name="Mapa" parent="." instance=ExtResource("1_c4xfh")]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_v7ycw")
+spawn_locations = Array[NodePath]([NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4"), NodePath("Marker2D5"), NodePath("Marker2D6"), NodePath("Marker2D7")])
+item = NodePath("Coin")
+
+[node name="Coin" parent="Node2D" instance=ExtResource("3_wcbc0")]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(504, 547)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D"]
+position = Vector2(766, 408)
+
+[node name="Marker2D3" type="Marker2D" parent="Node2D"]
+position = Vector2(1071, 435)
+
+[node name="Marker2D4" type="Marker2D" parent="Node2D"]
+position = Vector2(891, 635)
+
+[node name="Marker2D5" type="Marker2D" parent="Node2D"]
+position = Vector2(1135, 76)
+
+[node name="Marker2D6" type="Marker2D" parent="Node2D"]
+position = Vector2(1188, 616)
+
+[node name="Marker2D7" type="Marker2D" parent="Node2D"]
+position = Vector2(248, 312)
+
+[node name="Marker2D8" type="Marker2D" parent="Node2D"]
+position = Vector2(1475, 476)
+
+[node name="Marker2D9" type="Marker2D" parent="Node2D"]
+position = Vector2(1267, 346)
+
+[node name="Marker2D10" type="Marker2D" parent="Node2D"]
+position = Vector2(1001, 277)
+
+[node name="Angel Player" parent="." instance=ExtResource("4_3jyb1")]
+unique_name_in_owner = true
+position = Vector2(562, 242)
+
+[node name="Balance" parent="." instance=ExtResource("5_b4b8x")]
+position = Vector2(387, 63)
+
+[node name="Weighted Item" parent="." instance=ExtResource("6_xlwta")]
+position = Vector2(392, 501)
+
+[node name="Weighted Item2" parent="." instance=ExtResource("6_xlwta")]
+position = Vector2(1334, 574)
+weight = 3.0
+
+[node name="Weighted Item3" parent="." instance=ExtResource("6_xlwta")]
+position = Vector2(1400, 118)
+weight = 2.0
+
+[node name="Weighted Item4" parent="." instance=ExtResource("6_xlwta")]
+position = Vector2(964, 438)
+weight = 4.0
+
+[node name="Timer" parent="." instance=ExtResource("8_qxsx8")]
+time = 100
+
+[node name="Killzone" parent="." instance=ExtResource("9_j2sw6")]
+position = Vector2(1110, 971)
+scale = Vector2(3, 3)
+
+[connection signal="picked_up" from="Node2D/Coin" to="Node2D" method="_on_coin_picked_up"]
